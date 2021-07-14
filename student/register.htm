@@ -1,0 +1,412 @@
+<html>
+<head><title>CUIC- Student Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style>body { background-image: url('../assets/images/cuic.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; }</style>
+<style type="text/css">
+
+.form-style-5{
+	max-width: 70%;
+	padding: 10px 20px;
+	background: #D6DBDF;
+	margin: 0px auto;
+	padding: 20px;
+	border-radius: 8px;
+    position: inherit;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+.form-style-5 fieldset{
+	border: none;
+}
+.form-style-5 legend {
+	font-size: 1.4em;
+	margin-bottom: 10px;
+}
+.form-style-5 label {
+	display: block;
+	margin-bottom: 8px;
+}
+.form-style-5 input[type="text"],
+.form-style-5 input[type="date"],
+.form-style-5 input[type="datetime"],
+.form-style-5 input[type="email"],
+.form-style-5 input[type="number"],
+.form-style-5 input[type="search"],
+.form-style-5 input[type="time"],
+.form-style-5 input[type="url"],
+.form-style-5 input[type="password"],
+.form-style-5 textarea,
+.form-style-5 select {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	background: rgba(255,255,255,.1);
+	border: none;
+	border-radius: 4px;
+	font-size: 15px;
+	margin: 0;
+	outline: 0;
+	padding: 10px;
+	width: 100%;
+	box-sizing: border-box; 
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	background-color: #e8eeef;
+	color:#000;
+	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+	margin-bottom: 30px;
+}
+.form-style-5 input[type="text"]:focus,
+.form-style-5 input[type="date"]:focus,
+.form-style-5 input[type="datetime"]:focus,
+.form-style-5 input[type="email"]:focus,
+.form-style-5 input[type="number"]:focus,
+.form-style-5 input[type="search"]:focus,
+.form-style-5 input[type="time"]:focus,
+.form-style-5 input[type="password"]:focus,
+.form-style-5 input[type="url"]:focus,
+.form-style-5 textarea:focus,
+.form-style-5 select:focus{
+	background: #fff;
+}
+.form-style-5 select{
+	-webkit-appearance: menulist-button;
+	height:35px;
+}
+.form-style-5 .number {
+	background: #283747;
+	color: #fff;
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+	font-size: 0.8em;
+	margin-right: 4px;
+	line-height: 30px;
+	text-align: center;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+	border-radius: 15px 15px 15px 0px;
+}
+
+.form-style-5 input[type="submit"],
+.form-style-5 input[type="button"]
+{
+	position: relative;
+	display: block;
+	padding: 19px 39px 18px 39px;
+	color: #FFF;
+	margin: 0 auto;
+	background: #283747;
+	font-size: 18px;
+	text-align: center;
+	font-style: normal;
+	width: 100%;
+	border: 1px solid #5D6D7E;
+	border-width: 1px 1px 3px;
+	margin-bottom: 10px;
+}
+.form-style-5 input[type="submit"]:hover,
+.form-style-5 input[type="button"]:hover
+{
+	background: #5D6D7E;
+}
+</style>
+<script>
+var check = function() {
+	if (document.getElementById('password').value == "" || document.getElementById('confirm_password').value == "") {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'Password field(s) should not empty';		
+	}
+  else if (document.getElementById('password').value == document.getElementById('confirm_password').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'Good to go';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'Password not matching';
+  }
+}
+var check2 = function() 
+{ 
+	var str = document.getElementById("password").value; 
+    if (str.length >= 8)  
+	{ 
+		document.getElementById('message1').style.color = 'green';
+		document.getElementById('message1').innerHTML = 'Good to go';
+	}
+	else
+	{ 
+		document.getElementById('message1').style.color = 'red';
+		document.getElementById('message1').innerHTML = 'Password length should more than 8 characters.';
+	}
+}  
+</script>
+</head>
+<body>    
+	<div style="color:white;">
+	<center><h2>Centre For University Industry Collaboration <br/>Anna University, Chennai-25<br/><br/>STUDENT REGISTRATION</h2></center>
+	<fieldset>
+	<legend>Important Note</legend>
+	<ul>
+		<li>Use Laptop/Desktop to fill this form. Some validations may not work in mobile/tablet.</li>
+		<li>If you have already registered, then don't register again. You may loose your account.</li>
+		<li>If you have done any mistake while submitting this form, then visit CUIC-Center during office hours.</li>
+		<li>Make sure you have filled your correct details.</li>
+		<li>If we found any details incorrect, then you may be banned for all processes.</li>
+		<li>If you face any problem while filling this form, you can contact or visit CUIC-Center in-person during office hour.</li>
+	</ul>
+	</fieldset>
+	</div>
+	<br/>
+    <div class="form-style-5">
+        <form action="register.php" method="post" target="fram">
+            <fieldset>
+                <legend><span class="number">1</span> Candidate Info</legend>
+                    <input type="text" name="regno" placeholder="Registration No" required>
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" title="Dont use fancy email." required>
+					<input type="password" id="password" name="password" placeholder="Password" onkeyup='check2();' required>
+					<span id='message1'></span>
+					<input type="password" id="confirm_password" name="cnfpassword" placeholder="Confirm Password" minlength="8" onkeyup='check();' required>
+					<span id='message'></span>
+			</fieldset>
+    
+            
+            <fieldset>
+                <legend><span class="number">2</span> Academic details</legend>
+					<input type="text" list="campus" name="campus" placeholder="Campus" onchange='checkCampus(this.value)'>
+						<datalist id="campus">
+							<option value="College of Engineering Guindy"></option>
+							<option value="Madras Institute of Technology"></option>
+							<option value="Alagappa College of Technology"></option>
+							<option value="School of Architecture And Planning"></option>
+							<option value="Other"></option>
+						</datalist>
+					<input type="text" name="campus" id="otherCampus" placeholder="Specify" style='display:none'/>
+                    
+					<input type="text" list="degree" name="degree" placeholder="Degree" onchange='checkdegree(this.value)' >
+                        <datalist id="degree">
+                          <option value="Undergraduate"></option>
+                          <option value="Postgraduate"></option>
+                         </datalist>
+                    <input type="text" id="ug" list="bcourse" name="ugcourse" placeholder="Course" style='display:none' >
+                         <datalist id="bcourse">
+                             <option value="B.E Civil"></option> 
+                             <option value="B.E Geo Informatics"></option> 
+                             <option value="B.E Agricultural and Irrigation"></option> 
+                             <option value="B.E Mechanical"></option> 
+                             <option value="B.E Industrial"></option> 
+                             <option value="B.E Manufacturing"></option> 
+                             <option value="B.E Mining"></option> 
+                             <option value="B.E Mining"></option> 
+                             <option value="B.E Printing"></option> 
+                             <option value="B.E Electrical and Electronics"></option> 
+                             <option value="B.E Electronics and Comm"></option> 
+                             <option value="B.E Computer Science"></option> 
+                             <option value="B.Tech Information Technology"></option> 
+                             <option value="B.E Biomedical"></option> 
+                        </datalist>
+                    <input type="text" id="pg" list="pcourse" name="pgcourse" placeholder="Course" style='display:none' >
+                        <datalist id="pcourse">
+                             <option value="M.E Structural Engineering"></option> 
+                             <option value="M.E Construction and Management"></option> 
+                             <option value="M.E Irrigation Water Management"></option> 
+                             <option value="M.E Hydrology and Water Resources Engineering"></option> 
+                             <option value="M.E Environmental Engineering"></option> 
+                             <option value="M.E Transportation Engineering"></option> 
+                             <option value="M.E Soil Mechanics and Foundation Engineering"></option> 
+                             <option value="M.E Environmental Management"></option> 
+                             <option value="M.E Remote Sensing and Geomatics"></option> 
+                             <option value="M.E Integrated Water Resources Management"></option> 
+                             <option value="M.Tech Coastal Management"></option> 
+                             <option value="M.E Internal Combustion Engineering"></option> 
+                             <option value="M.E Energy Engineering"></option> 
+                             <option value="M.E Computer Integrated Manufacturing"></option> 
+                             <option value="M.E Thermal Engineering"></option> 
+                             <option value="M.E Engineering Design"></option> 
+                             <option value="M.E Industrial Engineering"></option> 
+                             <option value="M.E Manufacturing Engineering"></option> 
+                             <option value="M.E Mechatronics"></option> 
+                             <option value="M.E Manufacturing Systems and Management"></option> 
+                             <option value="M.E Product Design and Development"></option> 
+                             <option value="M.E Quality Engineering Management"></option> 
+                             <option value="M.E Computer Aided Design"></option> 
+                             <option value="M.E Printing and Packaging Technology"></option> 
+                             <option value="M.E Solar Energy"></option> 
+                             <option value="M.E Green Manufacturing"</option>
+                             <option value="M.E. Power Systems Engineering"></option> 
+                             <option value="M.E. Power Electronics and Drives"></option> 
+                             <option value="M.E. Embedded System Technologies"></option> 
+                             <option value="M.E. High Voltage Engineering"></option> 
+                             <option value="M.E. Control and Instrumentation Engineering"></option> 
+                             <option value="M.E. Instrumentation Engineering"></option> 
+                             <option value="M.E. Power Engineering and Management"></option> 
+                             <option value="M.E. Computer Science and Engineering"></option> 
+                             <option value="M.E. Software Engineering"></option> 
+                             <option value="M.E. Communication Systems"></option> 
+                             <option value="M.E.VLSI Design"></option> 
+                             <option value="M.E. Medical Electronics"></option> 
+                             <option value="M.E. Multimedia Technology"></option> 
+                             <option value="M.E. Bio Medical Engineering"></option> 
+                             <option value="M.E. Communication and Networking"></option> 
+                             <option value="M.E. Avionics"></option> 
+                             <option value="M.E. Applied Electronics"></option> 
+                             <option value="M. Tech. Information Technology"></option> 
+                             <option value="M. Tech. Laser and Electro Optical Engineering"></option> 
+                             <option value="M.E. Systems Engineering and Operations Research"></option> 
+                             <option value="Master of Computer Applications (M.C.A.) Regular"></option> 
+                             <option value="Master of Computer Applications (M.C.A.) Self Supporting"></option> 
+                             <option value="M.E. Computer Science and Engineering (Specialization in Big Data Analytics)"></option> 
+                             <option value="M.E. Wireless Technologies"></option> 
+                             <option value="M.E. VLSI Design and Embedded Systems"></option> 
+                             <option value="M.Sc. Applied Mathematics(2 years)"></option> 
+                             <option value="M.Sc. Medical Physics(2 years)"></option> 
+                             <option value="M.Sc. Applied Chemistry (2 years)"></option> 
+                             <option value="M.Sc. Applied Geology (2 years)"></option> 
+                             <option value="M.Sc. Materials Science (2 years)"></option> 
+                             <option value="M.Sc. Environmental Science (2 years)"></option> 
+                             <option value="M.Sc. Electronic Media (2 years)"></option> 
+                             <option value="M. Phil. (Mathematics)"></option> 
+                             <option value="M. Phil. (Physics)"></option> 
+                             <option value="M. Phil. (Crystal Science)"></option> 
+                             <option value="M. Phil. (Chemistry)"></option> 
+                             <option value="M. Phil. (English)"></option> 
+                             <option value="M. Phil. (Medical Physics)"></option> 
+                             <option value="M.Sc. Computer Science(5 years)"></option> 
+                             <option value="M.Sc. Information Technology(5 years)"></option> 
+                             <option value="M.Sc. Electronic Media(5 years)"></option> 
+                             <option value="Master of Business Administration (MBA)"></option> 
+                             <option value="M.B.A. Tourism Management"</option>
+                        </datalist>
+        
+        
+                    <input type="number" name="cgpa" placeholder="Average CGPA (till now)" step="0.01" min="0" max="10">
+        
+        
+                    <input type="text" list="activeyesno" name="activeBL" placeholder="Active Backlog(s) {YES/NO}" onchange='checkactiveBL(this.value)' >
+                    <datalist id="activeyesno">
+                        <option value="YES"></option>
+                        <option value="NO"></option></datalist>
+                    <input type="number" name="numOfActiveBL" id="numOfActiveBL" placeholder="Number of Active Backlog(s)" style='display:none'>
+
+        
+                    <input type="text" list="activeyesno" name="historyBL" placeholder="History Backlog(s) {YES/NO}" onchange='checkhistoryBL(this.value)' >
+                    <datalist id="activeyesno">
+                        <option value="YES"></option>
+                        <option value="NO"></option></datalist>
+                    <input type="number" name="numOfHistoryBL" id="numOfHistoryBL" placeholder="Number of Past Backlog(s)" style='display:none'>
+
+            </fieldset>
+    
+    
+            <fieldset>
+                <legend><span class="number">3</span> Qualification details</legend>
+                    <label for="job">10th Board:</label>
+                    <select id="job" name="board10" onchange='checkvalue(this.value)' >
+                        <option value="">--Select 10th Board--</option>
+                        <option value="ICSE">ICSE</option>
+                        <option value="CBSE">CBSE</option>
+                        <option value="State">State</option>
+                        <option value="Other">Other</option>   
+                    </select>
+                    <input type="text" name="board10" id="board" placeholder="Specify" style='display:none'/>
+    
+                    <label for="job">10th Percentage:</label>
+                        <input type="number" name="percentage10" step="0.01" min="0" max="100">
+
+    
+    
+                    <label for="job">12th Board/Diploma:</label>
+                    <select id="" name="board12" onchange='checkvalue1(this.value)' >
+                        <option value="">--Select 12th Board--</option>
+                        <option value="ICSE">ICSE</option>
+                        <option value="CBSE">CBSE</option>
+                        <option value="State">State</option>
+                        <option value="Other">Other</option>   
+                    </select>
+                    <input type="text" name="board12" id="board1" placeholder="Specify" style='display:none'/>
+
+                    <label for="job">12th Percentage:</label>
+                        <input type="number" name="percentage12" step="0.01" min="0" max="100">
+
+                    <div id="graduationdegree" style='display:none'>
+                        <label for="job">Graduation Degree:</label>
+                        <input type="text" name="graduationdegree" >
+
+                        <label for="job">Graduation Percentage:(CGPA * 10)</label>
+                        <input type="number" name="percentageGrad" step="0.01" min="0" max="100">
+                    </div>
+    
+            </fieldset>
+            <label for="job">&nbsp; &nbsp;<input type="checkbox" name="terms" required>&nbsp;I accept that all above details are true.</label><br>
+
+            <input type="submit" name="submit" value="Register">
+        </form>
+    </div>
+    <script type="text/javascript">
+		function checkCampus(val){
+            if(val=="Other"){
+                document.getElementById('otherCampus').style.display='block';
+            }
+            else{
+                document.getElementById('otherCampus').style.display='none';
+            }
+        }
+        function checkvalue(val){
+            if(val=="Other" || val=='State'){
+                document.getElementById('board').style.display='block';
+                document.getElementById('board').setAttribute('value',val);
+            }
+            else{
+                document.getElementById('board').style.display='none';
+                document.getElementById('board').setAttribute('value',val);
+            }
+        }
+        function checkvalue1(val){
+            if(val=="Other" || val=='State'){
+                document.getElementById('board1').style.display='block';
+                document.getElementById('board1').setAttribute('value',val);
+            }
+            else{
+                document.getElementById('board1').style.display='none';
+                document.getElementById('board1').setAttribute('value',val);
+            }
+        }
+        function checkdegree(val){
+            if(val=="Undergraduate"){
+                document.getElementById('ug').style.display='block';
+                document.getElementById('graduationdegree').style.display='none';
+                document.getElementById('pg').style.display='none';
+            }
+            else if(val=="Postgraduate"){
+                document.getElementById('pg').style.display='block';
+                document.getElementById('ug').style.display='none';
+                document.getElementById('graduationdegree').style.display='block';
+
+            }
+            else{
+                document.getElementById('ug').style.display='none';
+                document.getElementById('pg').style.display='none';
+                document.getElementById('graduationdegree').style.display='none';
+
+            }
+        }
+        function checkactiveBL(val){
+            if(val=="YES"){
+                document.getElementById('numOfActiveBL').style.display='block';
+            }
+            else{
+                document.getElementById('numOfActiveBL').style.display='none';
+            }
+        }
+        function checkhistoryBL(val){
+            if(val=="YES"){
+                document.getElementById('numOfHistoryBL').style.display='block';
+            }
+            else{
+                document.getElementById('numOfHistoryBL').style.display='none';
+            }
+        }
+    
+    </script> 
+    
+</body>
+
+</html>

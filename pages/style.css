@@ -1,0 +1,50 @@
+*{
+        margin: 0;
+       padding: 0;
+}
+.header {
+    overflow: hidden;
+    background-color: #0f81f8;
+}
+#arrow{
+    float: left;
+    padding: 5px;
+}
+#headertitle{
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    width: 100%;
+}
+/*#bodydiv{
+    background-image: url(../assets/images/univ.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+      filter: blur(8px);
+  -webkit-filter: blur(8px);
+ }*/
+#tbldiv{
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    padding: 20px;
+}
+#tbl{
+    text-align: center;
+    padding: 10px;
+    width: auto;
+    width: 50%;
+    margin: 0 auto;
+}
+#tbl td,th{
+    padding: 10px;;
+    font-size: 15px;;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #102F4F;
+}
